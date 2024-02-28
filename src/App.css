@@ -1,0 +1,188 @@
+*{
+  margin: 0;
+  padding: 0;
+ }
+ ul{
+  padding: 0;
+  margin: 0;
+ }
+ li{
+  list-style: none;
+ }
+ body{
+  background-color: #eee;
+  font-family: 'Open Sans', sans-serif;
+ }
+ .SideMenu{
+  position:fixed;
+  background-color: rgb(16, 7, 43);
+  border-radius: 5px 1rem;
+  width:200px;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 30px 20px;
+  transition: width .2s ease-in;
+ }
+ .SideMenu.inactive{
+  width:80px;
+ }
+ .SideMenu .top-section{
+  position: relative;
+ }
+ .SideMenu .top-section .logo{
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  
+  
+ }
+ .SideMenu .top-section .logo img{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.divider{
+  width:100%;
+  height:1px;
+  border-radius: 1px;
+  background: #bcb8b8
+}
+.SideMenu .MainMenu{
+  margin: 5px 0 ;
+}
+.SideMenu .MainMenu .MenuItem{
+  color:   #eaeaea;
+  text-decoration: none;
+  font-size: 15px;
+  display: block;
+  font-weight: 600;
+  cursor: pointer;
+
+}
+.SideMenu .MainMenu .MenuItem.active{
+background-color: rgb(255, 255, 255);
+border-radius: 5px;
+color: gray;
+}
+.SideMenu .MainMenu .MenuItem .MenuIcon{
+  display: inline-block;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+}
+.SideMenu .MainMenu .MenuItem span{
+  position: absolute;
+  display: inline-block;
+  line-height: 40px;
+  opacity: 1;
+  transition: opacity .2s ease-in;
+}
+.SideMenu.inactive .MainMenu .MenuItem span{
+  opacity: 0;
+  width: 0;
+  height: 0;
+  overflow:hidden;
+}
+.SideMenu .MainMenu .SubMenu{
+  color:  rgb(255, 255, 255);
+  margin-left: 20px;
+  border-left: 1px solid  rgb(255, 255, 255);
+  box-sizing: border-box;
+  padding-left: 30px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .2s ease-in;
+  
+}
+
+.SideMenu .MainMenu .SubMenu.active{
+max-height: 200px;
+}
+.SideMenu .MainMenu .SubMenu a{
+  display: block;
+    margin: 5px 0;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    color:  rgb(255, 255, 255);
+    box-sizing: border-box;
+    padding: 5px;
+    text-decoration: none;
+
+}
+.SideMenu .MainMenu .SubMenu a.active{
+  background-color: whitesmoke;
+  display: block;
+  box-sizing: border-box;
+  border-radius: 5px;
+  color:gray;
+  
+  }
+
+.SideMenuFooter{
+  width:100%;
+  background: rgb(16, 7, 43);
+  position: absolute;
+  bottom: 0;
+  left:0;
+  padding: 20px;
+  box-sizing: border-box;
+
+}
+ .SideMenuFooter .avatar{
+   width: 40px;
+   height: 40px;
+   overflow: hidden;
+   border-radius: 50%;
+   display: inline-block;
+ }
+ .SideMenuFooter .avatar img{
+  max-width: 100%;
+}
+
+.SideMenuFooter .userInfo{
+  display:inline-block;
+  margin: 0 1px;
+  color:#eee; 
+  position: absolute;
+  opacity: 1;
+  transition: opacity .2s ease-in;
+
+}
+.SideMenu.inactive .SideMenuFooter .userInfo{
+  opacity: 1;
+  width: 0;
+  height:0;
+  overflow: hidden;
+}
+.SideMenuFooter .userInfo h5{
+  font-size: 15px ;
+}
+.SideMenuFooter .userInfo p{
+ font-size: 14px; 
+
+}
+.container{
+  margin-left: 170px;
+  transition: margin-left .2s ease-in;
+  padding: 50px;
+  box-sizing:border-box;
+}
+.container.inactive{
+  margin-left:70px;
+}
+table {
+  border: 2px solid rgb(9, 21, 50);
+  width: 800px;
+  height: 200px;
+}
+
+th {
+  border-bottom: 1px solid black;
+}
+
+td {
+  text-align: center;
+}
