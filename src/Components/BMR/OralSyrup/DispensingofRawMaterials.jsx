@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import OralSyruppage6 from './OralSyruppage6';
 import Equipment21 from './Equipment21';
-export default function DispensingofRawMaterials() {
+export default function DispensingofRawMaterials({orderId}) {
   return (
     <div>
       <h2>Dispensing Of Raw Materials</h2>
@@ -20,7 +20,7 @@ export default function DispensingofRawMaterials() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            <Equipment21/>
+            <Equipment21 orderId={orderId}/>
           </Typography>
         </AccordionDetails>
       </Accordion>

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React,{useState} from 'react';
 import { styled } from '@mui/material/styles';
 import PropTypes from 'prop-types';
 import Typography from '@mui/material/Typography';
@@ -94,57 +94,61 @@ export default function OralSyruptabs() {
     setValue(newValue);
   };
   
- 
+  const [orderId,setOrderId]= useState('')
+  
+  const handleClick =()=>{
+    setOrderId(document.getElementById('orderId').value);
+  }
   return (
     <div>
       <h1>Batch Manufacturing Records</h1>
-    <Card sx={{minHeight: 98 + "vh"}}>
+      <label htmlFor="orderId">Order Id : </label>
+      <input type="text" id="orderId" name="orderId" /> 
+      <button onClick={handleClick}>
+        Submit</button>
+      <Card sx={{ minHeight: 98 + "vh" }}>
         <CardContent>
+          <Box sx={{ maxWidth: { xs: 320, sm: 1050 }, bgcolor: 'background.paper' }}>
+            <Box sx={{ width: '100%' }}>
+              <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                <StyledTabs
+                  value={value}
+                  onChange={handleChange}
+                  variant="scrollable"
+                  scrollButtons="auto"
+                  aria-label="scrollable auto tabs example"
+                >
 
-        
-    <Box sx={{ maxWidth: { xs: 320, sm: 1050 }, bgcolor: 'background.paper' }}>
-    <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-      <StyledTabs
-        value={value}
-        onChange={handleChange}
-        variant="scrollable"
-        scrollButtons="auto"
-        aria-label="scrollable auto tabs example"
-      >
-        <StyledTab label="Order Id" {...a11yProps(0)} />
-        <StyledTab label="Product Details" {...a11yProps(1)}/>
-        <StyledTab label="Item Three" {...a11yProps(2)}/>
-        <StyledTab label="Master Formula" {...a11yProps(3)}/>
-        <StyledTab label="Dispensing of Raw Materials" {...a11yProps(4)}/>
-        <StyledTab label="Manufacturing" {...a11yProps(5)}/>
-        <StyledTab label="Attatchments" {...a11yProps(6)}/>
-      </StyledTabs>
-      </Box>
-      
-      <CustomTabPanel value={value} index={0}>
-        
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}>
-        <ProductDetails/>
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={2}>
-      <OralSyruppage2/>
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={3}>
-        <Masterformula/>
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={4}>
-      <DispensingofRawMaterials/>
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={5}>
-      <Manufacturing/>
-      </CustomTabPanel>
-     
-      </Box>
-    </Box>
-    </CardContent>
-  </Card>
-  </div>
+                  <StyledTab label="Product Details" {...a11yProps(0)} />
+                  <StyledTab label="Item Three" {...a11yProps(1)} />
+                  <StyledTab label="Master Formula" {...a11yProps(2)} />
+                  <StyledTab label="Dispensing of Raw Materials" {...a11yProps(3)} />
+                  <StyledTab label="Manufacturing" {...a11yProps(4)} />
+                  <StyledTab label="Attatchments" {...a11yProps(5)} />
+                </StyledTabs>
+              </Box>
+
+
+              <CustomTabPanel value={value} index={0}>
+                <ProductDetails orderId={orderId} />
+              </CustomTabPanel>
+              <CustomTabPanel value={value} index={1}>
+                <OralSyruppage2 />
+              </CustomTabPanel>
+              <CustomTabPanel value={value} index={2}>
+                <Masterformula />
+              </CustomTabPanel>
+              <CustomTabPanel value={value} index={3}>
+                <DispensingofRawMaterials orderId={orderId}/>
+              </CustomTabPanel>
+              <CustomTabPanel value={value} index={4}>
+                <Manufacturing />
+              </CustomTabPanel>
+
+            </Box>
+          </Box>
+        </CardContent>
+      </Card>
+    </div>
   );
 }

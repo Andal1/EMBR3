@@ -7,8 +7,8 @@ import './OralSyrup.css'
 
 
 
-const OralSyruppage1 = () => {
-    const [oralsyrupname,setOralsyrupname]= useState('')
+const OralSyruppage1 = ({orderId}) => {
+    const [productname,setProductname]= useState('')
     const [documentname,setDocumentname] = useState('')
     const [versionnumber,setVersionnumber] = useState('')
     const [changecontrolnumber,setChangecontrolnumber] = useState('')
@@ -28,8 +28,8 @@ const OralSyruppage1 = () => {
       <div className='OralSyruppage1'>
           <h2>Product Details</h2>
       <form>
-            <label htmlFor="oralsyrupname">Oral Syrup : </label>
-            <input type="text" value={oralsyrupname} onChange={(e) => setOralsyrupname(e.target.value)}id="oralsyrupname" name="oralsyrupname"/><br/>
+            <label htmlFor="productname">Product Name : </label>
+            <input type="text" value={productname} onChange={(e) => setProductname(e.target.value)}id="productname" name="productname"/><br/>
             <label htmlFor="documentname">Document Number : </label>
             <input type="text" value={documentname}  onChange={(e) => setDocumentname(e.target.value)}id="documentname" name="documentname"/><br/>
             <label htmlFor="versionnumber">Version Number : </label>
@@ -38,7 +38,7 @@ const OralSyruppage1 = () => {
             <input type="text" value={changecontrolnumber} onChange={(e) => setChangecontrolnumber(e.target.value)}id="changecontrolnumber" name="changecontrolnumber"/><br/>
             <label htmlFor="supersedesname">Supersedes : </label>
             <input type="text" value={supersedesname} onChange={(e) => setSupersedesname(e.target.value)}id="supersedesname" name="supersedesname"/><br/>
-            <label htmlFor="effectivedate">Supersedes : </label>
+            <label htmlFor="effectivedate">Effective Date : </label>
             <input type="date" value={effectivedate} onChange={(e) => setEffectivedate(e.target.value)}id="effectivedate" name="effectivedate"/><br/>
             <label htmlFor="labelclaim">Label Claim : </label>
             <input type="text" value={labelclaim} onChange={(e) => setLabelclaim(e.target.value)}id="labelclaim" name="labelclaim"/><br/>
@@ -56,10 +56,11 @@ const OralSyruppage1 = () => {
             <input type="date" value={expdate} onChange={(e) => setExpdate(e.target.value)}id="expdate" name="expdate"/><br/>
             <button type="submit">Print</button>
             <button type="submit">edit</button>
-            <button variant="outlined" href="#OralSyruppage2">
+            <button variant="outlined">
               Next</button>
-    
+            
           </form>
+          <div><button type="submit">Print</button></div>
           </div>
           
     )
