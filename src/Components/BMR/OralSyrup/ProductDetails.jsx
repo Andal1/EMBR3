@@ -26,11 +26,19 @@ const OralSyruppage1 = ({ orderId }) => {
   return (
     <div className='OralSyruppage1'>
       <h2>Product Details</h2>
-      <form>
-        <label htmlFor="productname">Product Name : </label>
-        <input type="text" value={productname} onChange={(e) => setProductname(e.target.value)} id="productname" name="productname" /><br />
-        <label htmlFor="documentname">Document Number : </label>
-        <input type="text" value={documentname} onChange={(e) => setDocumentname(e.target.value)} id="documentname" name="documentname" /><br />
+      <table>
+        <tr>
+          <td>
+            <label htmlFor="productname">Product Name : </label>
+          </td>
+          <td>
+            <input type="text" value={productname} onChange={(e) => setProductname(e.target.value)} id="productname" name="productname" /><br />
+          </td>
+        </tr>
+        <tr>
+          <td><label htmlFor="documentname">Document Number : </label></td>
+          <td><input type="text" value={documentname} onChange={(e) => setDocumentname(e.target.value)} id="documentname" name="documentname" /><br /></td>
+        </tr>
         <label htmlFor="versionnumber">Version Number : </label>
         <input type="text" value={versionnumber} onChange={(e) => setVersionnumber(e.target.value)} id="versionnumber" name="versionnumber" /><br />
         <label htmlFor="changecontrolnumber">Change Control Number : </label>
@@ -53,7 +61,7 @@ const OralSyruppage1 = ({ orderId }) => {
         <input type="date" value={mgfdate} onChange={(e) => setMgfdate(e.target.value)} id="mgfdate" name="mgfdate" /><br />
         <label htmlFor="expdate">Exp Date : </label>
         <input type="date" value={expdate} onChange={(e) => setExpdate(e.target.value)} id="expdate" name="expdate" /><br />
-      </form>
+      </table >
       <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'right' }}>
         <Button variant="contained" style={{ backgroundColor: 'rgb(16, 7, 43)' }} onClick={() => { setIsEditable(true) }}>&nbsp;&nbsp; Edit &nbsp;&nbsp;</Button>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
