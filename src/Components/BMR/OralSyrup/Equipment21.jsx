@@ -2,12 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Button from "@mui/material/Button";
 import './TableWithCheckedCheckbox.css'; // Import your CSS file
 import { ThemeProvider, createTheme } from "@mui/material/styles";
- 
-const theme = createTheme({
-    spacing: 8, // Spacing factor
-});
 
-const Equipment21 = ({orderId}) => {
+const Equipment21 = ({ orderId }) => {
   const [isEditable, setIsEditable] = useState(false);
   const [data, setData] = useState([
     // { sno: 1, equipment: 'Dispensing booth', idnumber: 'WH/R20/E05' , isChecked: false },
@@ -16,11 +12,11 @@ const Equipment21 = ({orderId}) => {
     // { sno: 4, equipment: 'Adam weighing balance-4 500kg', idnumber: 'WH/R20/E04', isChecked: false },
     // { sno: 5, equipment: 'Adam weighing balance-3 30kg', idnumber: 'WH/R20/E03', isChecked: false },
     // { sno: 6, equipment: 'Adam weighing balance-6 16kg', idnumber: 'WH/R20/E14', isChecked: false },
-   //Add more data as needed
+    //Add more data as needed
   ]);
   useEffect(() => {
-    console.log("inside useEffect:"+orderId);
-    fetch("http://localhost:5038/equipment2_1/"+orderId)
+    console.log("inside useEffect:" + orderId);
+    fetch("http://localhost:5038/equipment2_1/" + orderId)
       .then((res) => res.json())
       .then((data) => setData(data));
   }, [orderId]);
@@ -47,47 +43,47 @@ const Equipment21 = ({orderId}) => {
   };
 
   return (
-      <div className="table-container">
-        <table className="styled-table">
-          <thead>
-            <tr>
-              <th>S.No</th>
-              <th>Equipment</th>
-              <th>ID Number</th>
-              <th>Equipment Used</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((item, index) => (
-              <tr key={index}>
-                <td>{index+1}</td>
-                <td>{item.equipment}</td>
-                <td>{item.idnumber}</td>
-                <td>
-                { isEditable ? (
-                    <input
+    <div className="table-container">
+      <table className="styled-table">
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Equipment</th>
+            <th>ID Number</th>
+            <th>Equipment Used</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((item, index) => (
+            <tr key={index}>
+              <td>{index + 1}</td>
+              <td>{item.equipment}</td>
+              <td>{item.idnumber}</td>
+              <td>
+                {isEditable ? (
+                  <input
                     type="checkbox"
                     checked={item.isChecked}
                     onChange={() => handleCheckboxChange(index)}
                   />
-                  ) : (
-                    <input
+                ) : (
+                  <input
                     type="checkbox"
                     disabled readonly
                     checked={item.isChecked}
                   />
-                  )}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table><br />
-        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'right'}}>
-          <Button variant="contained" onClick={()=>{setIsEditable(true)}}>&nbsp;&nbsp; Edit &nbsp;&nbsp;</Button>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Button variant="contained" onClick={handleUpdate}>Update</Button>
-        </div>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table><br />
+      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'right' }}>
+        <Button variant="contained" style={{ backgroundColor: 'rgb(16, 7, 43)' }} onClick={() => { setIsEditable(true) }}>&nbsp;&nbsp; Edit &nbsp;&nbsp;</Button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <Button variant="contained" style={{ backgroundColor: 'rgb(16, 7, 43)' }} onClick={handleUpdate}>Update</Button>
       </div>
+    </div>
   );
 };
 

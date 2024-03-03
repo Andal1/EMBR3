@@ -101,12 +101,12 @@ export default function OralSyruptabs() {
   }
   return (
     <div>
-      <h1>Batch Manufacturing Records</h1>
+      <h1>Batch Manufacturing Records</h1><br />
       <label htmlFor="orderId">Order Id : </label>
       <input type="text" id="orderId" name="orderId" /> 
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <Button  variant="outlined" size="small" onClick={handleClick}>
-        Submit</Button>
+        Submit</Button><br /><br />
       <Card sx={{ minHeight: 98 + "vh" }}>
         <CardContent>
           <Box sx={{ maxWidth: { xs: 320, sm: 1050 }, bgcolor: 'background.paper' }}>
