@@ -35,9 +35,10 @@ const Equipment21 = ({orderId}) => {
         "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify(data)
-    })
-      .then((res) => res.json())
-      .then((data) => setData(data));
+    }).then((res) => res.json());
+    fetch("http://localhost:5038/equipment2_1/"+orderId)
+      .then((data) => setData(data))
+      .then(() => setIsEditable(false));
   }
   const handleCheckboxChange = (sno) => {
     setData((data) =>
