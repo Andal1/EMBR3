@@ -8,6 +8,7 @@ import './OralSyrup.css'
 
 
 const OralSyruppage1 = ({orderId}) => {
+  const [isEditable, setIsEditable] = useState(false);
     const [productname,setProductname]= useState('')
     const [documentname,setDocumentname] = useState('')
     const [versionnumber,setVersionnumber] = useState('')
@@ -33,7 +34,7 @@ const OralSyruppage1 = ({orderId}) => {
             <label htmlFor="documentname">Document Number : </label>
             <input type="text" value={documentname}  onChange={(e) => setDocumentname(e.target.value)}id="documentname" name="documentname"/><br/>
             <label htmlFor="versionnumber">Version Number : </label>
-            <input type="number" value={versionnumber} onChange={(e) => setVersionnumber(e.target.value)}id="versionnumber" name="versionnumber"/><br/>
+            <input type="text" value={versionnumber} onChange={(e) => setVersionnumber(e.target.value)}id="versionnumber" name="versionnumber"/><br/>
             <label htmlFor="changecontrolnumber">Change Control Number : </label>
             <input type="text" value={changecontrolnumber} onChange={(e) => setChangecontrolnumber(e.target.value)}id="changecontrolnumber" name="changecontrolnumber"/><br/>
             <label htmlFor="supersedesname">Supersedes : </label>
@@ -54,13 +55,14 @@ const OralSyruppage1 = ({orderId}) => {
             <input type="date" value={mgfdate} onChange={(e) => setMgfdate(e.target.value)}id="mgfdate" name="mgfdate"/><br/>
             <label htmlFor="expdate">Exp Date : </label>
             <input type="date" value={expdate} onChange={(e) => setExpdate(e.target.value)}id="expdate" name="expdate"/><br/>
-            <button type="submit">Print</button>
-            <button type="submit">edit</button>
-            <button variant="outlined">
-              Next</button>
-            
           </form>
-          <div><button type="submit">Print</button></div>
+          <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'right'}}>
+          <Button variant="contained" onClick={()=>{setIsEditable(true)}}>&nbsp;&nbsp; Edit &nbsp;&nbsp;</Button>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <Button variant="contained">Update</Button>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <Button variant="contained">&nbsp;&nbsp; Print &nbsp;&nbsp;</Button>
+        </div>
           </div>
           
     )

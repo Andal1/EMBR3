@@ -73,6 +73,7 @@ const Equipment21 = ({orderId}) => {
                   ) : (
                     <input
                     type="checkbox"
+                    disabled readonly
                     checked={item.isChecked}
                   />
                   )}

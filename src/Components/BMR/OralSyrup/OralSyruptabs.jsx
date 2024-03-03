@@ -104,8 +104,9 @@ export default function OralSyruptabs() {
       <h1>Batch Manufacturing Records</h1>
       <label htmlFor="orderId">Order Id : </label>
       <input type="text" id="orderId" name="orderId" /> 
-      <button onClick={handleClick}>
-        Submit</button>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <Button  variant="outlined" size="small" onClick={handleClick}>
+        Submit</Button>
       <Card sx={{ minHeight: 98 + "vh" }}>
         <CardContent>
           <Box sx={{ maxWidth: { xs: 320, sm: 1050 }, bgcolor: 'background.paper' }}>
