@@ -36,9 +36,7 @@ const Equipment21 = ({orderId}) => {
       },
       body: JSON.stringify(data)
     }).then((res) => res.json());
-    fetch("http://localhost:5038/equipment2_1/"+orderId)
-      .then((data) => setData(data))
-      .then(() => setIsEditable(false));
+    setIsEditable(false);
   }
   const handleCheckboxChange = (sno) => {
     setData((data) =>
